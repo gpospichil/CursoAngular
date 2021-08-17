@@ -1,7 +1,9 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
+import { Observable } from "rxjs"
 import { URL_API } from "../app.api"
 import { Oferta } from "../shared/oferta.model"
+import { map, retry } from "rxjs/operators"
 
 @Injectable({ providedIn: 'root' })
 export class OfertasService {
@@ -9,13 +11,13 @@ export class OfertasService {
     constructor(private http: HttpClient) { }
 
     public getOfertas(): Promise<Oferta[]> {
-        return this.http.get(`${URL_API}/ofertas?destaque=true`)
+        return this.http.get<Oferta[]>(`${URL_API}/ofertas?destaque=true`)
             .toPromise()
             .then((resposta: any) => resposta)
     }
 
     public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
-        return this.http.get(`${URL_API}/ofertas?categoria=${categoria}`)
+        return this.http.get<Oferta[]>(`${URL_API}/ofertas?categoria=${categoria}`)
             .toPromise()
             .then((resposta: any) => resposta)
     }
@@ -42,5 +44,13 @@ export class OfertasService {
             .then((resposta: any) => {
                 return resposta.shift().descricao
             })
+    }
+
+    public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+        return this.http.get<Oferta[]>(`${URL_API}/ofertas?titulo_like=${termo}`)
+            .pipe(
+                retry(10),
+                map((resposta: any) => resposta)
+            )
     }
 }

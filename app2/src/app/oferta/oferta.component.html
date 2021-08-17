@@ -1,6 +1,14 @@
 <div class="container">
   <div class="oferta" *ngIf="oferta !== undefined">
 
+    <!-- <div class="row">
+      <div class="col">
+        <a [routerLink]="['/oferta', 1]">Oferta 1 </a>
+        <a [routerLink]="['/oferta', 3]">Oferta 3 </a>
+        <a [routerLink]="['/oferta', 6]">Oferta 6 </a>
+      </div>
+    </div> -->
+
     <div class="row">
       <div class="col">
         <h4>{{oferta.descricao_oferta}}</h4>
@@ -28,7 +36,7 @@
 
         <div class="row">
           <div class="col text-center">
-            <h1>{{oferta.valor}}</h1>
+            <h1>{{oferta.valor | currency: 'BRL': 'symbol'}}</h1>
           </div>
         </div>
 
@@ -48,10 +56,12 @@
 
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-home-tab" routerLink="como-usar" data-bs-toggle="tab" data-bs-target="#como-usar"
-            type="button" role="tab" aria-controls="nav-home" aria-selected="true">Como usar</button>
-          <button class="nav-link" id="nav-profile-tab" routerLink="onde-fica" data-bs-toggle="tab" data-bs-target="#onde-fica" type="button"
-            role="tab" aria-controls="nav-profile" aria-selected="false">Onde fica?</button>
+          <button class="nav-link active" id="nav-home-tab" routerLink="como-usar" data-bs-toggle="tab"
+            data-bs-target="#como-usar" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Como
+            usar</button>
+          <button class="nav-link" id="nav-profile-tab" routerLink="onde-fica" data-bs-toggle="tab"
+            data-bs-target="#onde-fica" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Onde
+            fica?</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
