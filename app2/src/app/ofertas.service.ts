@@ -4,10 +4,10 @@ import { Observable } from "rxjs"
 import { MEAT_API } from "./app.api"
 import { Oferta } from "./shared/oferta.model"
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class OfertasService {
 
-    constructor(private http: HttpClient) { }    
+    constructor(private http: HttpClient) { }
 
     public getOfertas(): Promise<Oferta[]> {
         return this.http.get(`${MEAT_API}/ofertas?destaque=true`)
@@ -15,7 +15,10 @@ export class OfertasService {
             .then((resposta: any) => resposta)
     }
 
-    // public getOfertas(): Observable<Oferta[]> {
-    //     return this.http.get<Oferta[]>(`${MEAT_API}/ofertas`)
-    // }    
+    public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
+        return this.http.get(`${MEAT_API}/ofertas?categoria=${categoria}`)
+            .toPromise()
+            .then((resposta: any) => resposta)
+
+    }
 }
