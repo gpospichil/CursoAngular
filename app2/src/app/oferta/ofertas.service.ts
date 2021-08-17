@@ -27,4 +27,20 @@ export class OfertasService {
                 return resposta.shift()
             })
     }
+
+    public getComoUsarOfertaPorId(id: number): Promise<Oferta[]> {
+        return this.http.get<Oferta[]>(`${URL_API}/como-usar?id=${id}`)
+            .toPromise()
+            .then((resposta: any) => {
+                return resposta.shift().descricao
+            })
+    }
+
+    public getOndeFicaOfertaPorId(id: number): Promise<Oferta[]> {
+        return this.http.get<Oferta[]>(`${URL_API}/onde-fica?id=${id}`)
+            .toPromise()
+            .then((resposta: any) => {
+                return resposta.shift().descricao
+            })
+    }
 }
