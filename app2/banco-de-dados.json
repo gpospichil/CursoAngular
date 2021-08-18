@@ -186,19 +186,6 @@
     }
   ],
   "pedidos": [
-    {
-      "endereco": "dasdasd",
-      "numero": "12",
-      "complemento": "asdasd",
-      "formaPagamento": "dinheiro",
-      "id": 1
-    },
-    {
-      "endereco": "sdsdsds",
-      "numero": "11",
-      "complemento": "dsadasd",
-      "formaPagamento": "dinheiro",
-      "id": 2
-    }
+    
   ]
 }
