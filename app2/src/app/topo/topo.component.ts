@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
-import { OfertasService } from '../oferta/ofertas.service';
+import { OfertasService } from '../shared/ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 import { of } from 'rxjs';
 

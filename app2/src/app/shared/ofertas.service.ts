@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
 import { URL_API } from "../app.api"
-import { Oferta } from "../shared/oferta.model"
+import { Oferta } from "./oferta.model"
 import { map, retry } from "rxjs/operators"
 
 @Injectable({ providedIn: 'root' })

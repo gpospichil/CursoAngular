@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OfertasService } from '../ofertas.service';
+import { OfertasService } from '../../shared/ofertas.service';
 
 @Component({
   selector: 'app2-onde-fica',

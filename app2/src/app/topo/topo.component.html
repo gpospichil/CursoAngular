@@ -4,11 +4,11 @@
     <div class="container">
       <div class="row align-items-center" style="width: 100%;">
 
-        <div class="col-md-3">
+        <div class="col-md-3 d-flex justify-content-center">
           <a routerLink="" class="navbar-brand"><img src="/assets/logo.png" /></a>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 d-flex justify-content-center">
           <input type="text" class="form-control" placeholder="Pesquise por ofertas..." #termoDaPesquisa
             (keyup)="pesquisa(termoDaPesquisa.value)">
           <ul class="list-group" style="position: absolute; z-index: 999;">
@@ -21,8 +21,8 @@
 
         </div>
 
-        <div class="col-md-3">
-          <a href="#"><img src="/assets/carrinho.png"></a>
+        <div class="col-md-3 d-flex justify-content-center">
+          <a routerLink="/ordem-compra"><img src="/assets/carrinho.png"></a>
         </div>
 
       </div>
